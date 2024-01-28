@@ -1,4 +1,4 @@
-use crate::config::constants::{WEBDRIVER_URL, WEBPAGE_URL};
+use crate::config::constants::WEBPAGE_URL;
 use std::time::Duration;
 use std::{thread, time};
 use thirtyfour::extensions::query::conditions;

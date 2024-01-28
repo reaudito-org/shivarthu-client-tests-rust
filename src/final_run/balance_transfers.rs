@@ -25,6 +25,13 @@ impl BalanceTransfer {
 
         let accounts_handle = AccountHandle::new(self.driver.clone()).await?;
         accounts_handle.sign_in(&accounts_info["bob"]).await?;
+        let (to_account, amount) = (&accounts_info["charlie"], 1000000000000000);
+        accounts_handle
+            .add_balance_transfer(to_account, amount)
+            .await?;
+        accounts_handle
+            .sign_in_contract(&accounts_info["bob"])
+            .await?;
 
         Ok(())
     }
