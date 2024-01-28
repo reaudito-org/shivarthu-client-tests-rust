@@ -1,0 +1,63 @@
+{
+    "alice": {
+      "seed": "//Alice",
+      "password": "password123",
+      "public_key": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+    },
+    "bob": {
+      "seed": "//Bob",
+      "password": "securepass456",
+      "public_key": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
+    },
+    "charlie": {
+      "seed": "//Charlie",
+      "password": "pass53453",
+      "public_key": "5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y"
+    },
+    "dave": {
+      "seed": "//Dave",
+      "password": "peirujds88",
+      "public_key": "5DAAnrj7VHTznn2AWBemMuyBwZWs6FNFjdyVXUeYum3PTXFy"
+    },
+    "eve": {
+      "seed": "//Eve",
+      "password": "9353jdkeir",
+      "public_key": "5HGjWAeFDfFCWPsjFQdVV2Msvz2XtMktvgocEZcCj68kUMaw"
+    },
+    "ferdie": {
+      "seed": "//Ferdie",
+      "password": "i9kd720834u",
+      "public_key": "5CiPPseXPECbkjWCa6MnjNokrgYjMqmKndv2rSnekmSK2DjL"
+    },
+    "alice_stash": {
+      "seed": "//Alice//stash",
+      "password": "ierikd5732",
+      "public_key": "5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY"
+    },
+    "bob_stash": {
+      "seed": "//Bob//stash",
+      "password": "passueris89348",
+      "public_key": "5HpG9w8EBLe5XCrbczpwq5TSXvedjrBGCwqxK1iQ7qUsSWFc"
+    },
+    "charlie_stash": {
+      "seed": "//Charlie//stash",
+      "password": "cheeirus83483",
+      "public_key": "5Ck5SLSHYac6WFt5UZRSsdJjwmpSZq85fd5TRNAdZQVzEAPT"
+    },
+    "dave_stash": {
+      "seed": "//Dave//stash",
+      "password": "dai93943hixd",
+      "public_key": "5HKPmK9GYtE1PSLsS1qiYU9xQ9Si1NcEhdeCq9sw5bqu4ns8"
+    },
+    "eve_stash": {
+      "seed": "//Eve//stash",
+      "password": "ie9359EIIDwrir",
+      "public_key": "5FCfAonRZgTFrTd9HREEyeJjDpT397KMzizE6T3DvebLFE7n"
+    },
+    "ferdie_stash": {
+      "seed": "//Ferdie//stash",
+      "password": "feeiiide8354",
+      "public_key": "5CRmqmsiNFExV6VbdmPJViVxrWmkaXXvBrSX8oqBT8R9vmWk"
+    }
+  }
+  
