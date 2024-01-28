@@ -3,7 +3,8 @@ use crate::config::delay_time::delay_for;
 use std::time::Duration;
 use std::{thread, time};
 use thirtyfour::prelude::*;
-use thirtyfour::Key;
+// use thirtyfour::Key;
+// use web_sys::{Event, HtmlInputElement};
 
 // Define a struct to hold the WebDriver instance.
 pub struct AccountHandle {
@@ -40,7 +41,6 @@ impl AccountHandle {
         seed_input
             .send_keys(account["seed"].as_str().unwrap())
             .await?;
-        seed_input.send_keys(Key::Return.to_string()).await?;
 
         // Find password input by XPath
         let password_input_xpath = "//*[contains(@name, 'password')]";
@@ -50,7 +50,6 @@ impl AccountHandle {
         password_input
             .send_keys(account["password"].as_str().unwrap())
             .await?;
-        password_input.send_keys(Key::Return.to_string()).await?;
 
         thread::sleep(time::Duration::from_secs(5));
 
@@ -75,9 +74,6 @@ impl AccountHandle {
 
         // Sleep for 5 seconds
         delay_for(Duration::from_secs(5)).await;
-
-        // Send RETURN key
-        input_password.send_keys(Key::Return.to_string()).await?;
 
         // Find the submit button by XPath and submit
         let submit_button = self
@@ -112,8 +108,8 @@ impl AccountHandle {
         destination_account
             .send_keys(to_account["public_key"].as_str().unwrap())
             .await?;
-        
-        delay_for(Duration::from_secs(2)).await;
+
+        // delay_for(Duration::from_secs(2)).await;
 
         // Find the transfer balance input and send keys
         let transfer_balance = self
@@ -122,8 +118,7 @@ impl AccountHandle {
             .await?;
         transfer_balance.send_keys(amount.to_string()).await?;
 
-
-        delay_for(Duration::from_secs(2)).await;
+        // delay_for(Duration::from_secs(2)).await;
 
         // Find seed submit button by ID
         let submit_button_id = "tranfer-balance-submit";
