@@ -1,0 +1,51 @@
+{
+  "subwallet_password": "$Abcd1234$",
+  "accounts_by_seed": {
+    "seed": "scare erosion that cube engine way coral label horror load winter utility",
+    "accounts": {
+      "account1": {
+        "public_key": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf"
+      },
+      "account2": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5D7AQFgLc1aE1oQbKTnVPN49BofZSifxtDtSvBSmVTeC9B9G"
+      },
+      "account3": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5GGebFFAcFK2Dsps2MuZSSqt9r4Zfd3ndrddXC7tS99ERuMg"
+      },
+      "account4": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5EEevrvMbd6vGjZzxQynyxN5KDPZwVDYnBUbUvvCg5A9GKWB"
+      },
+      "account5": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5GUBy8ZTAUNKBSXwCPCQTE4e7NanUch9if28iPjeJZNePiPR"
+      },
+      "account6": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5Cci1uvznfw7T1oWcrAGH3ZbRAF5BT2ieswYRU7GvvWsV4Ec"
+      },
+      "account7": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5EcZSDsxcow7sBFH4FSwPbYxsm2g8MpFeszydDYxHuteyS3y"
+      },
+      "account8": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5GeVCauvBNruAcUtmaFgW9yPZUbfzHvCkL32o8GBW9im5rL2"
+      },
+      "account9": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5Fxyb7LYUm8sQx5E5HjyKTHk18VCgdTaJFKNAgzakFz8AZow"
+      },
+      "account10": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5CcjDre6c9z79eFnEUj4TBocsaRkdrzwN4gNiQpGAYsbWFqH"
+      },
+      "account11": {
+        "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "5G3hv49pXnDxwhoiz8CXRfLfBhT6DwokgWX41Yw1LANKgjdp"
+      }
+    }
+  }
+}
