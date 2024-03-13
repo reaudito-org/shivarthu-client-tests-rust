@@ -1,5 +1,8 @@
-use shivarthu_client_test::final_run::balance_transfers::BalanceTransfer;
-use shivarthu_client_test::webdriver_run::webdriver_function::{initialize_driver, remove_port, run_webdriver};
+// use shivarthu_client_test::final_run::balance_transfers::BalanceTransfer;
+use shivarthu_client_test::profile_validation::profile_validation_functions::ProfileValidationStruct;
+use shivarthu_client_test::webdriver_run::webdriver_function::{
+    initialize_driver, remove_port, run_webdriver,
+};
 
 use thirtyfour::prelude::*;
 
@@ -9,8 +12,8 @@ async fn main() -> WebDriverResult<()> {
     run_webdriver().await;
     let driver = initialize_driver().await;
 
-    let balance_tranfer_driver = BalanceTransfer::new(driver).await?;
-    balance_tranfer_driver.transfer_balance().await?;
+    let profile_validation = ProfileValidationStruct::new(driver).await?;
+    profile_validation.add_profile().await?;
     remove_port();
 
     Ok(())
