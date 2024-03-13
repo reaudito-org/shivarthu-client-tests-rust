@@ -1,50 +1,62 @@
 {
   "subwallet_password": "$Abcd1234$",
+  "address_conversion_link": "https://sr25519.com/ss58-address-to-public-key-substrate/",
   "accounts_by_seed": {
     "seed": "scare erosion that cube engine way coral label horror load winter utility",
     "accounts": {
       "account1": {
-        "public_key": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf"
+        "ss58_address": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
+        "public_key": "0x2e778beae3cc11fd7ea694f4ff8b54922d67e0599c356f393277ed9711d6364b"
       },
       "account2": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5D7AQFgLc1aE1oQbKTnVPN49BofZSifxtDtSvBSmVTeC9B9G"
+        "ss58_address": "5D7AQFgLc1aE1oQbKTnVPN49BofZSifxtDtSvBSmVTeC9B9G",
+        "public_key":"0x2e1c14cd13a2b090a62203809d8ce3eaac7417a4a0272438568eb04cae330669"
       },
       "account3": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5GGebFFAcFK2Dsps2MuZSSqt9r4Zfd3ndrddXC7tS99ERuMg"
+        "ss58_address": "5GGebFFAcFK2Dsps2MuZSSqt9r4Zfd3ndrddXC7tS99ERuMg",
+        "public_key":"0xba0ce278d82ef9a686cb60a801125a8d11b32caa2456ebdcfe7ff687bb9bf540"
       },
       "account4": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5EEevrvMbd6vGjZzxQynyxN5KDPZwVDYnBUbUvvCg5A9GKWB"
+        "ss58_address": "5EEevrvMbd6vGjZzxQynyxN5KDPZwVDYnBUbUvvCg5A9GKWB",
+        "public_key":"0x600f10bdbf233ac6614eea62ae45d269b43c759e4ddf0bc1a70ffcbc95499c6c"
       },
       "account5": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5GUBy8ZTAUNKBSXwCPCQTE4e7NanUch9if28iPjeJZNePiPR"
+        "ss58_address": "5GUBy8ZTAUNKBSXwCPCQTE4e7NanUch9if28iPjeJZNePiPR",
+        "public_key":"0xc2da35a7aed402249295971abe8f10e0b03d861a0571e56115bcc6f8828dd939"
       },
       "account6": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5Cci1uvznfw7T1oWcrAGH3ZbRAF5BT2ieswYRU7GvvWsV4Ec"
+        "ss58_address": "5Cci1uvznfw7T1oWcrAGH3ZbRAF5BT2ieswYRU7GvvWsV4Ec",
+        "public_key": "0x186863b612097dec4ce7b9772381935baa7fc6dc7c44695f0384174f1b131156"
       },
       "account7": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5EcZSDsxcow7sBFH4FSwPbYxsm2g8MpFeszydDYxHuteyS3y"
+        "ss58_address": "5EcZSDsxcow7sBFH4FSwPbYxsm2g8MpFeszydDYxHuteyS3y",
+        "public_key":"0x70c3f87a26743fed9194f8fc67bfdd9a211f3b00f5c80459107022d096dbf928"
       },
       "account8": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5GeVCauvBNruAcUtmaFgW9yPZUbfzHvCkL32o8GBW9im5rL2"
+        "ss58_address": "5GeVCauvBNruAcUtmaFgW9yPZUbfzHvCkL32o8GBW9im5rL2",
+        "public_key":"0xcab4abef5dda97cc98eb0f3a5e0329bd2c1b892b5f442021a634c7e79e6f6e29"
       },
       "account9": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5Fxyb7LYUm8sQx5E5HjyKTHk18VCgdTaJFKNAgzakFz8AZow"
+        "ss58_address": "5Fxyb7LYUm8sQx5E5HjyKTHk18VCgdTaJFKNAgzakFz8AZow",
+        "public_key":"0xac926b4e81989ca51c9ac6f0ef9c7db08d5334bb0a5c3b0194bf92d215b50f3f"
       },
       "account10": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5CcjDre6c9z79eFnEUj4TBocsaRkdrzwN4gNiQpGAYsbWFqH"
+        "ss58_address": "5CcjDre6c9z79eFnEUj4TBocsaRkdrzwN4gNiQpGAYsbWFqH",
+        "public_key":"0x186c72f04de9c1a74cee6836c08b6d56a88e90ab5a6127693a55379e8e03d919"
       },
       "account11": {
         "derived_from": "5D7daAUwyvuWNhJYXWXsjdAtfbPwuJopY6bACSCnB4BpoVYf",
-        "public_key": "5G3hv49pXnDxwhoiz8CXRfLfBhT6DwokgWX41Yw1LANKgjdp"
+        "ss58_address": "5G3hv49pXnDxwhoiz8CXRfLfBhT6DwokgWX41Yw1LANKgjdp",
+        "public_key":"0xb02de28c52fe59f9a3d8779cd8c6ee7439cba45e48e7ee582f5cc939c7b5946c"
       }
     }
   }
