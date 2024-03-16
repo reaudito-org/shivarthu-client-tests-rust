@@ -76,14 +76,20 @@ impl ProfileValidationStruct {
             .await?;
         submit_button.click().await?;
 
-        let accounts_info = get_accounts_from_ext(); 
+        let accounts_info = get_accounts_from_ext();
 
-        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();        
-        
-        println!("{:?}", address);
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+
+        // println!("{:?}", address);
 
         // Sleep for 5 seconds (similar to the time.sleep(5) in Python code).
         sleep(Duration::from_secs(5)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(address)).await?;
+        select_account.click().await?;
 
         Ok(())
     }
