@@ -1,3 +1,4 @@
+use crate::config::accounts::get_accounts_from_ext;
 use crate::config::constants::WEBPAGE_URL;
 use std::env;
 use std::time::Duration;
@@ -55,25 +56,31 @@ impl ProfileValidationStruct {
 
         // file_input.send_keys(Key::Tab.to_string()).await?;
 
-        let elem = self
-            .driver
-            .query(By::Id("profile-video-load"))
-            .first()
-            .await?;
+        // let elem = self
+        //     .driver
+        //     .query(By::Id("profile-video-load"))
+        //     .first()
+        //     .await?;
 
-        // Wait for the element to be displayed
-        elem.wait_until().displayed().await?;
+        // // Wait for the element to be displayed
+        // elem.wait_until().displayed().await?;
         // Wait until the element with ID "profile-video-load" becomes clickable.
 
         // Sleep for 3 seconds (similar to the time.sleep(3) in Python code).
-        sleep(Duration::from_secs(60)).await;
+        sleep(Duration::from_secs(20)).await;
 
         // Find and submit the submit_button element.
-        // let submit_button = self
-        //     .driver
-        //     .find(By::XPath("//*[contains(@type, 'submit')]"))
-        //     .await?;
-        // submit_button.click().await?;
+        let submit_button = self
+            .driver
+            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .await?;
+        submit_button.click().await?;
+
+        let accounts_info = get_accounts_from_ext(); 
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();        
+        
+        println!("{:?}", address);
 
         // Sleep for 5 seconds (similar to the time.sleep(5) in Python code).
         sleep(Duration::from_secs(5)).await;

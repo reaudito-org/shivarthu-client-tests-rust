@@ -4,6 +4,7 @@ use shivarthu_client_test::profile_validation::profile_validation_functions::Pro
 use shivarthu_client_test::webdriver_run::webdriver_function::{
     initialize_driver, remove_port, run_webdriver,
 };
+use shivarthu_client_test::config::accounts::get_accounts_from_ext;
 
 use thirtyfour::prelude::*;
 
@@ -17,6 +18,9 @@ async fn main() -> WebDriverResult<()> {
 
     let profile_validation = ProfileValidationStruct::new(driver).await?;
     profile_validation.add_profile().await?;
+
+    
+    // println!("{:?}", accounts_info);
     remove_port();
 
     Ok(())
