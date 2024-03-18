@@ -94,5 +94,16 @@ impl ProfileValidationStruct {
         Ok(())
     }
 
-    // Implement other methods...
+    pub async fn view_profile(&self) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!("{}/view-profile/{}", WEBPAGE_URL, address))
+            .await?;
+
+        sleep(Duration::from_secs(15)).await;
+
+        Ok(())
+    }
 }

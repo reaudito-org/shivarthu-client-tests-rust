@@ -15,6 +15,8 @@ pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
 
     if input == "n" {
         println!("You entered 'n'.");
+        let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+        profile_validation.view_profile().await?;
     } else {
         panic!("You have not entered n");
     }
