@@ -5,26 +5,26 @@ use thirtyfour::prelude::*;
 pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
     // Add profile
 
-    // let input = prompt()?;
-    // if input == "n" {
-    //     println!("You entered 'n'.");
-    //     let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
-    //     profile_validation.add_profile().await?;
-    // } else {
-    //     panic!("You have not entered n");
-    // }
+    let input = prompt()?;
+    if input == "n" {
+        println!("You entered 'n'.");
+        let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+        profile_validation.add_profile().await?;
+    } else {
+        panic!("You have not entered n");
+    }
 
     // View Profile
 
-    // let input = prompt()?;
+    let input = prompt()?;
 
-    // if input == "n" {
-    //     println!("You entered 'n'.");
-    //     let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
-    //     profile_validation.view_profile().await?;
-    // } else {
-    //     panic!("You have not entered n");
-    // }
+    if input == "n" {
+        println!("You entered 'n'.");
+        let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+        profile_validation.view_profile().await?;
+    } else {
+        panic!("You have not entered n");
+    }
 
     // Add profile stake 1
 
