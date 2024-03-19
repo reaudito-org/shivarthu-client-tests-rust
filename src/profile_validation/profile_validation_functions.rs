@@ -106,4 +106,30 @@ impl ProfileValidationStruct {
 
         Ok(())
     }
+    pub async fn add_profile_stake(&self, stake: String, account_cut: &str) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!("{}/add-profile-stake/{}", WEBPAGE_URL, address))
+            .await?;
+        sleep(Duration::from_secs(5)).await;
+        let profile_stake = self.driver.find(By::Id("profile-stake")).await?;
+        profile_stake.send_keys(stake).await?;
+        sleep(Duration::from_secs(5)).await;
+        let submit_button = self
+            .driver
+            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(5)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account_cut)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
 }
