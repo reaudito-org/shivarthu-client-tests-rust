@@ -58,5 +58,18 @@ pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
         panic!("You have not entered n");
     }
 
+    // Challenge evidence
+
+    let input = prompt()?;
+
+    if input == "n" {
+        println!("You entered 'n'.");
+        let accounts_info = get_accounts_from_ext();
+        let account_cut = accounts_info["account4"]["ss58_address"].as_str().unwrap();
+        let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+        profile_validation.challenge_evidence(account_cut).await?;
+    } else {
+        panic!("You have not entered n");
+    }
     Ok(())
 }
