@@ -169,4 +169,37 @@ impl ProfileValidationStruct {
 
         Ok(())
     }
+    pub async fn juror_stake(&self, account_stake: &str, stake: &str) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+
+        sleep(Duration::from_secs(15)).await;
+        let stake_element = self.driver.find(By::Id("juror-stake")).await?;
+        stake_element.send_keys(stake).await?;
+
+        sleep(Duration::from_secs(20)).await;
+
+        // Find and submit the submit_button element.
+        let submit_button = self
+            .driver
+            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(5)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account_stake)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
 }
