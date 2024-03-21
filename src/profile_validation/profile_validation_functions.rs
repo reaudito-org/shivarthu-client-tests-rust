@@ -151,15 +151,15 @@ impl ProfileValidationStruct {
         let details_data = r#"Profile is invalid"#;
         details_input.send_keys(details_data).await?;
 
-        sleep(Duration::from_secs(20)).await;
+        sleep(Duration::from_secs(5)).await;
 
         // Find and submit the submit_button element.
         let submit_button = self
             .driver
-            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .find(By::Id("challenge-evidence-submit"))
             .await?;
         submit_button.click().await?;
-        sleep(Duration::from_secs(5)).await;
+        sleep(Duration::from_secs(15)).await;
 
         let select_account_button = self.driver.find(By::Id("select-account")).await?;
         select_account_button.click().await?;
@@ -169,7 +169,20 @@ impl ProfileValidationStruct {
 
         Ok(())
     }
-    pub async fn juror_stake(&self, account_stake: &str, stake: &str) -> WebDriverResult<()> {
+
+    pub async fn schelling_game_page(&self) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+        Ok(())
+    }
+    pub async fn apply_juror(&self, account_stake: &str, stake: &str) -> WebDriverResult<()> {
         let accounts_info = get_accounts_from_ext();
 
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
@@ -180,19 +193,19 @@ impl ProfileValidationStruct {
             ))
             .await?;
 
-        sleep(Duration::from_secs(15)).await;
+        sleep(Duration::from_secs(5)).await;
         let stake_element = self.driver.find(By::Id("juror-stake")).await?;
         stake_element.send_keys(stake).await?;
 
-        sleep(Duration::from_secs(20)).await;
+        sleep(Duration::from_secs(5)).await;
 
         // Find and submit the submit_button element.
         let submit_button = self
             .driver
-            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .find(By::Id("apply-juror-submit"))
             .await?;
         submit_button.click().await?;
-        sleep(Duration::from_secs(5)).await;
+        sleep(Duration::from_secs(15)).await;
 
         let select_account_button = self.driver.find(By::Id("select-account")).await?;
         select_account_button.click().await?;
