@@ -126,6 +126,43 @@ pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
                     .apply_juror(account_stake, "2800")
                     .await?;
             }
+
+            13 => {
+                // Change Period
+                println!("You entered '13'");
+                let accounts_info = get_accounts_from_ext();
+                let account = accounts_info["account11"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation.change_period(account).await?;
+            }
+            14 => {
+                // Change Period
+                println!("You entered '14'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_draw = accounts_info["account11"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .draw_jurors("3", account_for_draw)
+                    .await?;
+            }
+            15 => {
+                // Change Period
+                println!("You entered '15'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_draw = accounts_info["account11"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .draw_jurors("2", account_for_draw)
+                    .await?;
+            }
+            16 => {
+                // Change Period
+                println!("You entered '16'");
+                let accounts_info = get_accounts_from_ext();
+                let account = accounts_info["account11"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation.change_period(account).await?;
+            }
             _ => {
                 println!("Please enter a valid number");
             }

@@ -200,10 +200,7 @@ impl ProfileValidationStruct {
         sleep(Duration::from_secs(5)).await;
 
         // Find and submit the submit_button element.
-        let submit_button = self
-            .driver
-            .find(By::Id("apply-juror-submit"))
-            .await?;
+        let submit_button = self.driver.find(By::Id("apply-juror-submit")).await?;
         submit_button.click().await?;
         sleep(Duration::from_secs(15)).await;
 
@@ -211,6 +208,66 @@ impl ProfileValidationStruct {
         select_account_button.click().await?;
 
         let select_account = self.driver.find(By::Id(account_stake)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
+
+    pub async fn change_period(&self, account: &str) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+
+        sleep(Duration::from_secs(5)).await;
+        let submit_button = self.driver.find(By::Id("change-period-submit")).await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(15)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
+
+    pub async fn draw_jurors(
+        &self,
+        draw_number: &str,
+        account_for_draw: &str,
+    ) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+
+        sleep(Duration::from_secs(5)).await;
+        let draw_number_element = self.driver.find(By::Id("iterations")).await?;
+        draw_number_element.send_keys(draw_number).await?;
+
+        sleep(Duration::from_secs(5)).await;
+
+        // Find and submit the submit_button element.
+        let submit_button = self.driver.find(By::Id("draw-jurors-submit")).await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(15)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account_for_draw)).await?;
         select_account.click().await?;
 
         Ok(())
