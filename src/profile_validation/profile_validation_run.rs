@@ -4,7 +4,7 @@ use crate::profile_validation::profile_validation_functions::ProfileValidationSt
 use thirtyfour::prelude::*;
 pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
     loop {
-        let input = prompt()?;
+        let input = prompt("Enter the number")?;
         let trimmed_input = input.trim();
 
         if trimmed_input.to_lowercase() == "q" {
@@ -162,6 +162,210 @@ pub async fn profile_validation_run(driver: WebDriver) -> WebDriverResult<()> {
                 let account = accounts_info["account11"]["ss58_address"].as_str().unwrap();
                 let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
                 profile_validation.change_period(account).await?;
+            }
+            17 => {
+                // Change Period
+                println!("You entered '17'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account5"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "0account5";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            18 => {
+                // Change Period
+                println!("You entered '18'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account6"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "0account6";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            19 => {
+                // Change Period
+                println!("You entered '19'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account7"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "0account7";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            20 => {
+                // Change Period
+                println!("You entered '20'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account8"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "1account8";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            21 => {
+                // Change Period
+                println!("You entered '21'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account9"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "1account9";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            22 => {
+                // Change Period
+                println!("You entered '22'");
+                let accounts_info = get_accounts_from_ext();
+                let account_to_check = accounts_info["account10"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                profile_validation
+                    .juror_selected_check(account_to_check)
+                    .await?;
+                let input = prompt("Selected as juror y/n")?;
+                let trimmed_input = input.trim();
+
+                if trimmed_input.to_lowercase() == "y" {
+                    println!("Selected as juror");
+                    let vote_string = "1account10";
+                    profile_validation
+                        .commit_vote(vote_string, account_to_check)
+                        .await?;
+                } else {
+                    println!("Not selected as juror");
+                }
+            }
+            23 => {
+                println!("You entered '23'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account5"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "0";
+                let salt = "account5";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
+            }
+            24 => {
+                println!("You entered '24'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account6"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "0";
+                let salt = "account6";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
+            }
+            25 => {
+                println!("You entered '25'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account7"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "0";
+                let salt = "account7";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
+            }
+            26 => {
+                println!("You entered '26'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account8"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "1";
+                let salt = "account8";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
+            }
+            27 => {
+                println!("You entered '27'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account9"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "1";
+                let salt = "account9";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
+            }
+            28 => {
+                println!("You entered '28'");
+                let accounts_info = get_accounts_from_ext();
+                let account_for_reveal =
+                    accounts_info["account10"]["ss58_address"].as_str().unwrap();
+                let profile_validation = ProfileValidationStruct::new(driver.clone()).await?;
+                let choice = "1";
+                let salt = "account10";
+                profile_validation
+                    .reveal_vote(choice, salt, account_for_reveal)
+                    .await?;
             }
             _ => {
                 println!("Please enter a valid number");

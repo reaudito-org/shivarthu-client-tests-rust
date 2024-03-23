@@ -272,4 +272,93 @@ impl ProfileValidationStruct {
 
         Ok(())
     }
+
+    pub async fn juror_selected_check(&self, account_to_check: &str) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!("{}/juror-selected/{}", WEBPAGE_URL, address))
+            .await?;
+
+        sleep(Duration::from_secs(5)).await;
+        let juror_address_element = self.driver.find(By::Id("juror-address-checking")).await?;
+        juror_address_element.send_keys(account_to_check).await?;
+
+        sleep(Duration::from_secs(5)).await;
+
+        Ok(())
+    }
+
+    pub async fn commit_vote(
+        &self,
+        vote_string: &str,
+        account_for_commit: &str,
+    ) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+
+        sleep(Duration::from_secs(5)).await;
+        let commit_vote_element = self.driver.find(By::Id("commit-vote")).await?;
+        commit_vote_element.send_keys(vote_string).await?;
+
+        sleep(Duration::from_secs(5)).await;
+
+        // Find and submit the submit_button element.
+        let submit_button = self.driver.find(By::Id("commit-vote-submit")).await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(15)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account_for_commit)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
+
+    pub async fn reveal_vote(
+        &self,
+        choice: &str,
+        salt: &str,
+        account_for_reveal: &str,
+    ) -> WebDriverResult<()> {
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+        self.driver
+            .goto(format!(
+                "{}/profile-validation-game/{}",
+                WEBPAGE_URL, address
+            ))
+            .await?;
+
+        sleep(Duration::from_secs(5)).await;
+        let choice_element = self.driver.find(By::Id("choice")).await?;
+        choice_element.send_keys(choice).await?;
+        let salt_element = self.driver.find(By::Id("salt")).await?;
+        salt_element.send_keys(salt).await?;
+
+        sleep(Duration::from_secs(5)).await;
+
+        // Find and submit the submit_button element.
+        let submit_button = self.driver.find(By::Id("reveal-vote-submit")).await?;
+        submit_button.click().await?;
+        sleep(Duration::from_secs(15)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(account_for_reveal)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
 }
