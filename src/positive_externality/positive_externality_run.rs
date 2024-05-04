@@ -32,7 +32,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 // View Profile
                 println!("You entered '2'.");
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality.view_profile().await?;
+                positive_externality.apply_staking_period().await?;
             }
 
             3 => {
@@ -76,7 +76,9 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 let accounts_info = get_accounts_from_ext();
                 let account_stake = accounts_info["account5"]["ss58_address"].as_str().unwrap();
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality.apply_juror(account_stake, "500").await?;
+                positive_externality
+                    .apply_juror(account_stake, "500")
+                    .await?;
             }
             8 => {
                 // Juror stake 2
@@ -84,7 +86,9 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 let accounts_info = get_accounts_from_ext();
                 let account_stake = accounts_info["account6"]["ss58_address"].as_str().unwrap();
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality.apply_juror(account_stake, "800").await?;
+                positive_externality
+                    .apply_juror(account_stake, "800")
+                    .await?;
             }
             9 => {
                 // Juror stake 3

@@ -66,15 +66,39 @@ impl PositiveExternalityStruct {
         Ok(())
     }
 
-    pub async fn view_profile(&self) -> WebDriverResult<()> {
+    pub async fn apply_staking_period(&self) -> WebDriverResult<()> {
         let accounts_info = get_accounts_from_ext();
 
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
-            .goto(format!("{}/view-profile/{}", WEBPAGE_URL, address))
+            .goto(format!(
+                "{}/positive-externality/apply-staking-period/{}",
+                WEBPAGE_URL, address
+            ))
             .await?;
 
         sleep(Duration::from_secs(15)).await;
+
+        let submit_button = self
+            .driver
+            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .await?;
+        submit_button.click().await?;
+
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+
+        // println!("{:?}", address);
+
+        // Sleep for 5 seconds (similar to the time.sleep(5) in Python code).
+        sleep(Duration::from_secs(10)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(address)).await?;
+        select_account.click().await?;
 
         Ok(())
     }
@@ -110,7 +134,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -148,7 +172,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -160,7 +184,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -191,7 +215,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -220,7 +244,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -271,7 +295,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;
@@ -307,7 +331,7 @@ impl PositiveExternalityStruct {
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
             .goto(format!(
-                "{}/profile-validation-game/{}",
+                "{}/positive-externality/schelling-game/{}",
                 WEBPAGE_URL, address
             ))
             .await?;

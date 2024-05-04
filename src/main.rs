@@ -6,8 +6,8 @@ use shivarthu_client_test::webdriver_run::webdriver_function::{
     initialize_driver, remove_port, run_webdriver,
 };
 
-use shivarthu_client_test::profile_validation::profile_validation_run::profile_validation_run;
 use shivarthu_client_test::positive_externality::positive_externality_run::positive_externality_run;
+use shivarthu_client_test::profile_validation::profile_validation_run::profile_validation_run;
 use thirtyfour::prelude::*;
 
 #[tokio::main]
