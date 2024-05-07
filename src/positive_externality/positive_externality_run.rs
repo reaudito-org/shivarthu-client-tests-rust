@@ -21,7 +21,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
         };
 
         match number {
-            // Add profile
+            // Create post
             1 => {
                 println!("You entered '1'.");
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
@@ -33,34 +33,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 println!("You entered '2'.");
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
                 positive_externality.apply_staking_period().await?;
-            }
-
-            3 => {
-                // Profile stake 1
-                println!("You entered '3'.");
-                let accounts_info = get_accounts_from_ext();
-                let account_cut = accounts_info["account2"]["ss58_address"].as_str().unwrap();
-                let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality
-                    .add_profile_stake("500".to_string(), account_cut)
-                    .await?;
-            }
-            4 => {
-                // Profile stake 2
-                println!("You entered '4'.");
-                let accounts_info = get_accounts_from_ext();
-                let account_cut = accounts_info["account3"]["ss58_address"].as_str().unwrap();
-                let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality
-                    .add_profile_stake("500".to_string(), account_cut)
-                    .await?;
-            }
-            5 => {
-                println!("You entered '5'.");
-                let accounts_info = get_accounts_from_ext();
-                let account_cut = accounts_info["account4"]["ss58_address"].as_str().unwrap();
-                let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                positive_externality.challenge_evidence(account_cut).await?;
             }
 
             6 => {
