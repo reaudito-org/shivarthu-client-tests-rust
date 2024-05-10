@@ -153,7 +153,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
 
                 if trimmed_input.to_lowercase() == "y" {
                     println!("Selected as juror");
-                    let vote_string = "0account5";
+                    let vote_string = "2account5";
                     positive_externality
                         .commit_vote(vote_string, account_to_check)
                         .await?;
@@ -175,7 +175,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
 
                 if trimmed_input.to_lowercase() == "y" {
                     println!("Selected as juror");
-                    let vote_string = "0account6";
+                    let vote_string = "2account6";
                     positive_externality
                         .commit_vote(vote_string, account_to_check)
                         .await?;
@@ -197,7 +197,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
 
                 if trimmed_input.to_lowercase() == "y" {
                     println!("Selected as juror");
-                    let vote_string = "0account7";
+                    let vote_string = "2account7";
                     positive_externality
                         .commit_vote(vote_string, account_to_check)
                         .await?;
@@ -277,7 +277,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 let account_for_reveal =
                     accounts_info["account5"]["ss58_address"].as_str().unwrap();
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                let choice = "0";
+                let choice = "2";
                 let salt = "account5";
                 positive_externality
                     .reveal_vote(choice, salt, account_for_reveal)
@@ -289,7 +289,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 let account_for_reveal =
                     accounts_info["account6"]["ss58_address"].as_str().unwrap();
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                let choice = "0";
+                let choice = "2";
                 let salt = "account6";
                 positive_externality
                     .reveal_vote(choice, salt, account_for_reveal)
@@ -301,7 +301,7 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 let account_for_reveal =
                     accounts_info["account7"]["ss58_address"].as_str().unwrap();
                 let positive_externality = PositiveExternalityStruct::new(driver.clone()).await?;
-                let choice = "0";
+                let choice = "2";
                 let salt = "account7";
                 positive_externality
                     .reveal_vote(choice, salt, account_for_reveal)

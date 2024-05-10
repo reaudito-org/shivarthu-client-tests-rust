@@ -273,7 +273,10 @@ impl PositiveExternalityStruct {
         let accounts_info = get_accounts_from_ext();
         let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
         self.driver
-            .goto(format!("{}/juror-selected/{}", WEBPAGE_URL, address))
+            .goto(format!(
+                "{}/positive-externality-juror-selected/{}",
+                WEBPAGE_URL, address
+            ))
             .await?;
 
         sleep(Duration::from_secs(5)).await;
