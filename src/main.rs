@@ -8,6 +8,7 @@ use shivarthu_client_test::webdriver_run::webdriver_function::{
 
 use shivarthu_client_test::positive_externality::positive_externality_run::positive_externality_run;
 use shivarthu_client_test::profile_validation::profile_validation_run::profile_validation_run;
+use shivarthu_client_test::department_funding::department_funding_run::department_funding_run;
 use thirtyfour::prelude::*;
 
 #[tokio::main]
@@ -19,7 +20,9 @@ async fn main() -> WebDriverResult<()> {
     polkadotjs.got_page().await?;
     // profile_validation_run(driver.clone()).await?;
 
-    positive_externality_run(driver.clone()).await?;
+    // positive_externality_run(driver.clone()).await?;
+    
+    department_funding_run(driver.clone()).await?;
 
     // println!("{:?}", accounts_info);
     remove_port();

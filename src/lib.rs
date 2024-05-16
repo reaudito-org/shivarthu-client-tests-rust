@@ -5,4 +5,5 @@ pub mod final_run;
 pub mod polkadotjs;
 pub mod positive_externality;
 pub mod profile_validation;
+pub mod department_funding;
 pub mod webdriver_run;
