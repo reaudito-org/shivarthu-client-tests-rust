@@ -6,9 +6,10 @@ use shivarthu_client_test::webdriver_run::webdriver_function::{
     initialize_driver, remove_port, run_webdriver,
 };
 
+use shivarthu_client_test::department_funding::department_funding_run::department_funding_run;
 use shivarthu_client_test::positive_externality::positive_externality_run::positive_externality_run;
 use shivarthu_client_test::profile_validation::profile_validation_run::profile_validation_run;
-use shivarthu_client_test::department_funding::department_funding_run::department_funding_run;
+use shivarthu_client_test::project_tips::project_tips_run::project_tips_run;
 use thirtyfour::prelude::*;
 
 #[tokio::main]
@@ -21,8 +22,10 @@ async fn main() -> WebDriverResult<()> {
     // profile_validation_run(driver.clone()).await?;
 
     // positive_externality_run(driver.clone()).await?;
-    
-    department_funding_run(driver.clone()).await?;
+
+    // department_funding_run(driver.clone()).await?;
+
+    project_tips_run(driver.clone()).await?;
 
     // println!("{:?}", accounts_info);
     remove_port();
