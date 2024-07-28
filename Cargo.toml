@@ -8,6 +8,6 @@ edition = "2021"
 [dependencies]
 serde = "1.0.196"
 serde_json = "1.0.112"
-thirtyfour = "0.31.0"
+thirtyfour = "0.33.0"
 tokio = "1.35.1"
 # web-sys = {version="0.3.67", features = ['Event', 'HtmlInputElement']}

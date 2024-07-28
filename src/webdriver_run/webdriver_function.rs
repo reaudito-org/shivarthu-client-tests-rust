@@ -5,9 +5,9 @@ use thirtyfour::prelude::*;
 
 pub async fn initialize_driver() -> WebDriver {
     let mut caps = DesiredCapabilities::firefox();
-    let _ = caps.add_firefox_arg("-profile");
+    let _ = caps.add_arg("-profile");
     let _ =
-        caps.add_firefox_arg("/home/amiya/snap/firefox/common/.mozilla/firefox/0m6bcq5b.shivarthu");
+        caps.add_arg("/home/amiya/snap/firefox/common/.mozilla/firefox/0m6bcq5b.shivarthu");
 
     let driver = WebDriver::new(WEBDRIVER_URL, caps).await.unwrap();
     driver
