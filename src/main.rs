@@ -23,9 +23,9 @@ async fn main() -> WebDriverResult<()> {
 
     // positive_externality_run(driver.clone()).await?;
 
-    // department_funding_run(driver.clone()).await?;
+    department_funding_run(driver.clone()).await?;
 
-    project_tips_run(driver.clone()).await?;
+    // project_tips_run(driver.clone()).await?;
 
     // println!("{:?}", accounts_info);
     remove_port();

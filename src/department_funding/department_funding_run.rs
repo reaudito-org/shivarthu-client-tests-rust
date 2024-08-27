@@ -21,6 +21,11 @@ pub async fn department_funding_run(driver: WebDriver) -> WebDriverResult<()> {
         };
 
         match number {
+            0 => {
+                println!("You entered '0'.");
+                let department_funding = DepartmentFundingStruct::new(driver.clone()).await?;
+                department_funding.create_department().await?;
+            }
             // Create post
             1 => {
                 println!("You entered '1'.");

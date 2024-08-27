@@ -22,6 +22,48 @@ impl DepartmentFundingStruct {
         Ok(DepartmentFundingStruct { driver })
     }
 
+    pub async fn create_department(&self) -> WebDriverResult<()> {
+        self.driver
+            .goto(format!("{}/create-department", WEBPAGE_URL))
+            .await?;
+        thread::sleep(time::Duration::from_secs(3));
+
+        let title_input = self.driver.find(By::Id("title")).await?;
+        let title_data = r#""Department Number One"#;
+        title_input.send_keys(title_data).await?;
+
+        // Find details_input element and send keys.
+        let details_input = self
+            .driver
+            .find(By::XPath("//*[contains(@name, 'department-details')]"))
+            .await?;
+        let details_data =
+            r#""Alice in Wonderland" is a timeless literary classic written by Lewis Carroll."#;
+        details_input.send_keys(details_data).await?;
+        sleep(Duration::from_secs(20)).await;
+        let submit_button = self
+            .driver
+            .find(By::XPath("//*[contains(@type, 'submit')]"))
+            .await?;
+        submit_button.click().await?;
+        let accounts_info = get_accounts_from_ext();
+
+        let address = accounts_info["account1"]["ss58_address"].as_str().unwrap();
+
+        // println!("{:?}", address);
+
+        // Sleep for 5 seconds (similar to the time.sleep(5) in Python code).
+        sleep(Duration::from_secs(10)).await;
+
+        let select_account_button = self.driver.find(By::Id("select-account")).await?;
+        select_account_button.click().await?;
+
+        let select_account = self.driver.find(By::Id(address)).await?;
+        select_account.click().await?;
+
+        Ok(())
+    }
+
     pub async fn create_post(&self) -> WebDriverResult<()> {
         self.driver
             .goto(format!(
