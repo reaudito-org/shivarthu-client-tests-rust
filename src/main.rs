@@ -21,9 +21,9 @@ async fn main() -> WebDriverResult<()> {
     polkadotjs.got_page().await?;
     // profile_validation_run(driver.clone()).await?;
 
-    // positive_externality_run(driver.clone()).await?;
+    positive_externality_run(driver.clone()).await?;
 
-    department_funding_run(driver.clone()).await?;
+    // department_funding_run(driver.clone()).await?;
 
     // project_tips_run(driver.clone()).await?;
 

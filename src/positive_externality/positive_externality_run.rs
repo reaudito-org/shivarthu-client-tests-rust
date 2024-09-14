@@ -104,7 +104,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
             }
 
             13 => {
-                // Change Period
                 println!("You entered '13'");
                 let accounts_info = get_accounts_from_ext();
                 let account = accounts_info["account11"]["ss58_address"].as_str().unwrap();
@@ -112,7 +111,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 positive_externality.change_period(account).await?;
             }
             14 => {
-                // Change Period
                 println!("You entered '14'");
                 let accounts_info = get_accounts_from_ext();
                 let account_for_draw = accounts_info["account11"]["ss58_address"].as_str().unwrap();
@@ -122,7 +120,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                     .await?;
             }
             15 => {
-                // Change Period
                 println!("You entered '15'");
                 let accounts_info = get_accounts_from_ext();
                 let account_for_draw = accounts_info["account11"]["ss58_address"].as_str().unwrap();
@@ -132,7 +129,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                     .await?;
             }
             16 => {
-                // Change Period
                 println!("You entered '16'");
                 let accounts_info = get_accounts_from_ext();
                 let account = accounts_info["account11"]["ss58_address"].as_str().unwrap();
@@ -140,7 +136,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 positive_externality.change_period(account).await?;
             }
             17 => {
-                // Change Period
                 println!("You entered '17'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account5"]["ss58_address"].as_str().unwrap();
@@ -162,7 +157,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 }
             }
             18 => {
-                // Change Period
                 println!("You entered '18'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account6"]["ss58_address"].as_str().unwrap();
@@ -184,7 +178,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 }
             }
             19 => {
-                // Change Period
                 println!("You entered '19'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account7"]["ss58_address"].as_str().unwrap();
@@ -206,7 +199,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 }
             }
             20 => {
-                // Change Period
                 println!("You entered '20'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account8"]["ss58_address"].as_str().unwrap();
@@ -228,7 +220,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 }
             }
             21 => {
-                // Change Period
                 println!("You entered '21'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account9"]["ss58_address"].as_str().unwrap();
@@ -250,7 +241,6 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                 }
             }
             22 => {
-                // Change Period
                 println!("You entered '22'");
                 let accounts_info = get_accounts_from_ext();
                 let account_to_check = accounts_info["account10"]["ss58_address"].as_str().unwrap();
@@ -267,10 +257,14 @@ pub async fn positive_externality_run(driver: WebDriver) -> WebDriverResult<()> 
                     positive_externality
                         .commit_vote(vote_string, account_to_check)
                         .await?;
+                    println!("Change the period with pressing 13");
                 } else {
                     println!("Not selected as juror");
+                    println!("Change the period with pressing 13");
                 }
             }
+
+            // Change the period with pressing 13
             23 => {
                 println!("You entered '23'");
                 let accounts_info = get_accounts_from_ext();
